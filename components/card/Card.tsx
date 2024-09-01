@@ -8,18 +8,19 @@ import { CardBottom } from "./CardBottom"
 import { ContainerSettings } from "../container/Container"
 import { Heading } from "../text/Heading"
 
-export const Card = ({ background, padding }: {
+export const Card = ({ background, padding, my }: {
     background: string;
     padding: number;
+    my: number;
 }) => {
     return (
-        <Container background={background} padding={padding} my={0}>
+        <Container background={background} padding={padding} my={my}>
             <Element is={CardTop} id="text" canvas>
                 <Heading text="Title" variant="h3" mt={10} mb={0} color="black" align="left" />
                 <Text text="Description" color="#000" fontSize={16} />
             </Element>
             <Element is={CardBottom} id="buttons" canvas>
-                <Btn size="small" variant="text" color="primary" text="button" mx={0} my={0} />
+                <Btn size="small" variant="contained" color="primary" text="button" mx={0} my={0} />
             </Element>
         </Container>
     )

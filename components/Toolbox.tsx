@@ -6,6 +6,7 @@ import { Card } from "./card/Card"
 import { Heading } from "./text/Heading"
 import Dropdown from "./dropdown/Dropdown"
 import { Text } from "./text/Text"
+import { GridContainer } from "./gridcontainer/GridContainer"
 
 const boxStyle = { textAlign: "center", padding: "10px 0", border: "1px solid #ccc", background: "white" }
 
@@ -53,9 +54,17 @@ export const Toolbox = () => {
             <Dropdown category="Card">
                 <Box ref={(ref) => {
                     if (ref instanceof HTMLElement)
-                        connectors.create(ref, <Card background="red" padding={20} />);
+                        connectors.create(ref, <Card background="#ddd" padding={20} my={0} />);
                 }} sx={boxStyle}>
                     Card
+                </Box>
+            </Dropdown>
+            <Dropdown category="Grid Sections">
+                <Box ref={(ref) => {
+                    if (ref instanceof HTMLElement)
+                        connectors.create(ref, <GridContainer my={0} padding={2} />);
+                }} sx={boxStyle}>
+                    Section 1
                 </Box>
             </Dropdown>
         </Box>

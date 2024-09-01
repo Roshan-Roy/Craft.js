@@ -15,12 +15,14 @@ import { Editor, Frame, Element } from "@craftjs/core"
 import { Heading } from './text/Heading'
 import { Layers } from "@craftjs/layers"
 import { Topbar } from './Topbar'
+import { GridContainer } from './gridcontainer/GridContainer'
+import { GridItem } from './gridcontainer/GridItem'
 
 const Main = () => {
     return (
-        <Editor resolver={{ MainContainer, Card, Btn, Text, Heading, Container, CardTop, CardBottom }} indicator={{ success: "blue" }}>
+        <Editor resolver={{ MainContainer, Card, Btn, Text, Heading, Container, CardTop, CardBottom, GridContainer, GridItem }} indicator={{ success: "blue" }}>
             <Topbar />
-            <Grid container spacing={2} sx={{ px: "10px" }}>
+            <Grid container spacing={2}>
                 <Grid item xs={2}>
                     <Paper>
                         <Toolbox />

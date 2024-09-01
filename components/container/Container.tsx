@@ -31,15 +31,17 @@ export const Container = ({ background, padding, my, children }: {
 }
 
 export const ContainerSettings = () => {
-  const { actions: { setProp }, background, padding } = useNode(node => ({
+  const { actions: { setProp }, background, padding, my } = useNode(node => ({
     background: node.data.props.background,
-    padding: node.data.props.padding
+    padding: node.data.props.padding,
+    my: node.data.props.my
   }));
   return (
     <div>
       <FormControl component="fieldset">
         <FormLabel component="legend">Color</FormLabel>
         <RadioGroup defaultValue={background} onChange={(e) => setProp((props: any) => props.background = e.target.value)}>
+          <FormControlLabel label="Default" value="#ddd" control={<Radio size="small" color="primary" />} />
           <FormControlLabel label="Red" value="red" control={<Radio size="small" color="primary" />} />
           <FormControlLabel label="Green" value="green" control={<Radio size="small" color="primary" />} />
           <FormControlLabel label="Blue" value="blue" control={<Radio size="small" color="primary" />} />
@@ -48,6 +50,10 @@ export const ContainerSettings = () => {
       <FormControl fullWidth={true} margin="normal" component="fieldset">
         <FormLabel component="legend">Padding</FormLabel>
         <Slider defaultValue={padding} onChange={(_, value) => setProp((props: any) => props.padding = value)} />
+      </FormControl>
+      <FormControl fullWidth={true} margin="normal" component="fieldset">
+        <FormLabel component="legend">Margin Y</FormLabel>
+        <Slider defaultValue={my} onChange={(_, value) => setProp((props: any) => props.my = value)} />
       </FormControl>
     </div>
   )
